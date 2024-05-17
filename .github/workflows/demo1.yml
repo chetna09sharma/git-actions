@@ -4,6 +4,13 @@ on:
     types:
       - opened
   workflow_dispatch:
+  push:
+    branches:
+    - main
+    - 'dev-*'  # * -> will allow characters except /
+    - 'feat/**'  # ** => will allow / as well
+    paths-ignore:
+    - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
